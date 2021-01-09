@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="bottom"
+    android:background="@color/color_marker_background_translucent"
+    tools:context=".MainActivity">
+    <com.example.customvideorecorderapplication.CustomRecorderButtonWithPauseBreaks
+        android:id="@+id/btn_video_recorder"
+        android:layout_width="@dimen/recorder_width"
+        android:layout_height="@dimen/recorder_height"
+        android:layout_marginBottom="20dp"
+        app:cvb_inner_circle_color="@color/color_recorder_button"
+        app:cvb_outer_circle_color="@color/color_recorder_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/ib_play_pause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_pause"
+        android:background="@null"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@+id/btn_video_recorder"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_video_recorder"
+        app:layout_constraintLeft_toLeftOf="@+id/btn_video_recorder"
+        app:layout_constraintRight_toRightOf="@+id/btn_video_recorder" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

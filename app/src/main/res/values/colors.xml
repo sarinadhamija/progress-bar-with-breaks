@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="colorCyan">#00ffff</color>
+    <color name="color_border_blue">#2a65ea</color>
+    <color name="color_upload_media_title">#002f34</color>
+    <color name="color_recorder_button">#00a49f</color>
+    <color name="color_recorder_button_progress">#cbf7ee</color>
+    <color name="color_marker_background">#0e2e34</color>
+    <color name="color_marker_background_translucent">#900e2e34</color>
+    <color name="background_recorder">#80ffbb33</color>
+</resources>

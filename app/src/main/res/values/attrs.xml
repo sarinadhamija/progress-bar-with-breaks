@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CustomRecorderButton">
+        <attr name="cvb_recording_color" format="color"/>
+        <attr name="cvb_inner_circle_color" format="color"/>
+        <attr name="cvb_outer_circle_color" format="color"/>
+    </declare-styleable>
+
+</resources>

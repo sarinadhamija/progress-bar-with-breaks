@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="cvb_border_width">4dp</dimen>
+    <dimen name="recorder_width">90dp</dimen>
+    <dimen name="recorder_height">90dp</dimen>
+</resources>
