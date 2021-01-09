@@ -101,11 +101,11 @@ class CustomRecorderButtonWithPauseBreaks @JvmOverloads constructor(
     fun setTotalVideoDuration(duration: Long) {
         videoDurationInMillis = duration
 
-        initializeInnerCircleLongPressAnimation()
+        initializeInnerCircleAnimation()
         initializeOuterCircleBorderAnimation()
     }
 
-    private fun initializeInnerCircleLongPressAnimation() {
+    private fun initializeInnerCircleAnimation() {
         innerCircleValueAnimator = ValueAnimator.ofFloat().apply {
             interpolator = LinearOutSlowInInterpolator()
             duration = MINIMUM_VIDEO_DURATION_MILLIS
