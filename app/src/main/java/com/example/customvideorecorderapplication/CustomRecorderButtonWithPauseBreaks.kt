@@ -93,9 +93,7 @@ class CustomRecorderButtonWithPauseBreaks @JvmOverloads constructor(
 
     private var outerCircleBorderRect = RectF()
 
-    private lateinit var innerCircleSingleTapValueAnimator: ValueAnimator
-
-    private lateinit var innerCircleLongPressValueAnimator: ValueAnimator
+    private lateinit var innerCircleValueAnimator: ValueAnimator
 
     private lateinit var outerCircleBorderValueAnimator: ValueAnimator
 
@@ -104,23 +102,11 @@ class CustomRecorderButtonWithPauseBreaks @JvmOverloads constructor(
         videoDurationInMillis = duration
 
         initializeInnerCircleLongPressAnimation()
-        initializeInnerCircleSingleTapAnimation()
         initializeOuterCircleBorderAnimation()
     }
 
-    private fun initializeInnerCircleSingleTapAnimation() {
-        innerCircleSingleTapValueAnimator = ValueAnimator.ofFloat().apply {
-            interpolator = AccelerateDecelerateInterpolator()
-            duration = 300L
-            addUpdateListener {
-                innerCircleCurrentSize = it.animatedValue as Float
-                postInvalidate()
-            }
-        }
-    }
-
     private fun initializeInnerCircleLongPressAnimation() {
-        innerCircleLongPressValueAnimator = ValueAnimator.ofFloat().apply {
+        innerCircleValueAnimator = ValueAnimator.ofFloat().apply {
             interpolator = LinearOutSlowInInterpolator()
             duration = MINIMUM_VIDEO_DURATION_MILLIS
             addUpdateListener {
@@ -211,8 +197,8 @@ class CustomRecorderButtonWithPauseBreaks @JvmOverloads constructor(
         pauseAngleList.add(-90f)
         resumeTimeList.add(startRecordTime)
 
-        innerCircleLongPressValueAnimator.setFloatValues(innerCircleCurrentSize, innerCircleMinSize)
-        innerCircleLongPressValueAnimator.start()
+        innerCircleValueAnimator.setFloatValues(innerCircleCurrentSize, innerCircleMinSize)
+        innerCircleValueAnimator.start()
 
         outerCircleBorderValueAnimator.start()
         actionListener?.onStartRecord()
@@ -256,16 +242,11 @@ class CustomRecorderButtonWithPauseBreaks @JvmOverloads constructor(
         mCurrentRecordStatus = RECORD_STATUS_STOP
         endRecordTime = System.currentTimeMillis()
 
-        innerCircleLongPressValueAnimator.setFloatValues(innerCircleCurrentSize, innerCircleMaxSize)
-        innerCircleLongPressValueAnimator.start()
+        innerCircleValueAnimator.setFloatValues(innerCircleCurrentSize, innerCircleMaxSize)
+        innerCircleValueAnimator.start()
 
         outerCircleBorderValueAnimator.cancel()
         actionListener?.onEndRecord()
-    }
-
-    private fun onSingleTap() {
-        actionListener?.onSingleTap()
-        innerCircleSingleTapValueAnimator.start()
     }
 
     private fun isRecordTooShort(
@@ -457,8 +438,8 @@ class CustomRecorderButtonWithPauseBreaks @JvmOverloads constructor(
         isRecording = false
         endRecordTime = System.currentTimeMillis()
 
-        innerCircleLongPressValueAnimator.setFloatValues(innerCircleCurrentSize, innerCircleMaxSize)
-        innerCircleLongPressValueAnimator.start()
+        innerCircleValueAnimator.setFloatValues(innerCircleCurrentSize, innerCircleMaxSize)
+        innerCircleValueAnimator.start()
 
         outerCircleBorderValueAnimator.cancel()
         actionListener?.onCancelled()
