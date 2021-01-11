@@ -61,15 +61,15 @@ class CustomRecorderButtonWithPauseBreaks @JvmOverloads constructor(
     private var startAngle: Float = 0f
     private var sweepAngle: Float = 0f
 
+    fun setActionListener(actionListener: IRecorderActions){
+        this.actionListener = actionListener
+    }
+
     private var innerCirclePaint = Paint().apply {
         isAntiAlias = true
         style = Paint.Style.FILL
         innerCircleFillColor = ContextCompat.getColor(getContext(), R.color.color_recorder_button)
         color = innerCircleFillColor
-    }
-
-    fun setActionListener(actionListener: IRecorderActions){
-        this.actionListener = actionListener
     }
 
     private var outerCirclePaint = Paint().apply {
